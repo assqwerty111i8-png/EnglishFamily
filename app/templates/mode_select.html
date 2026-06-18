@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+Choose Mode
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h1 class="mb-4">
+        Choose Learning Mode
+    </h1>
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <div class="card p-4 shadow">
+
+                <h3>🧠 Anki Mode</h3>
+
+                <p>Smart spaced repetition.</p>
+
+                <a
+                    href="/anki/{{ user_id }}"
+                    class="btn btn-primary"
+                >
+                    Start Anki
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="card p-4 shadow">
+
+                <h3>🃏 Flashcards Mode</h3>
+
+                <p>Review cards one by one.</p>
+
+                <a
+                    href="/flashcards/{{ user_id }}"
+                    class="btn btn-success"
+                >
+                    Start Flashcards
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

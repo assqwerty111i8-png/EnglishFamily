@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+Пользователи
+{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">Выберите пользователя</h2>
+
+<div class="row">
+
+{% for user in users %}
+
+<div class="col-md-3 mb-3">
+
+    <div class="card shadow-sm">
+
+        <div class="card-body text-center">
+
+            <h4>{{ user.role }}</h4>
+
+            <p>
+                Уровень:
+                <strong>{{ user.cefr_level }}</strong>
+            </p>
+
+            <a
+                href="/user/{{ user.id }}"
+                class="btn btn-primary"
+            >
+                Открыть кабинет
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

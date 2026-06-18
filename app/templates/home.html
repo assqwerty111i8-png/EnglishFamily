@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="text-center py-5">
+
+    <h1 class="display-3 fw-bold">
+        📚 English Platform
+    </h1>
+
+    <p class="lead text-muted mb-4">
+        Изучение английского через карточки и интервальное повторение
+    </p>
+
+    <div class="mb-5">
+
+        <a href="/login"
+           class="btn btn-primary btn-lg me-2">
+            🔑 Login
+        </a>
+
+        <a href="/register"
+           class="btn btn-success btn-lg me-2">
+            ✨ Register
+        </a>
+
+        <a href="/profiles"
+           class="btn btn-outline-dark btn-lg">
+            👥 Users
+        </a>
+
+    </div>
+
+</div>
+
+<div class="row text-center">
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow h-100">
+            <div class="card-body">
+                <h1>🎯</h1>
+                <h4>Smart Learning</h4>
+                <p>
+                    Система интервального повторения как в Anki.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow h-100">
+            <div class="card-body">
+                <h1>📈</h1>
+                <h4>Statistics</h4>
+                <p>
+                    Отслеживай прогресс и удержание слов.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow h-100">
+            <div class="card-body">
+                <h1>🚀</h1>
+                <h4>CEFR Levels</h4>
+                <p>
+                    Карточки для уровней от A1 до C2.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

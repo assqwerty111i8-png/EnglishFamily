@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}
+Anki Mode
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 text-center">
+
+    <div class="card shadow p-5">
+
+        <h1>
+            {{ card.front }}
+        </h1>
+
+        <div id="answer" style="display:none;">
+
+            <hr>
+
+            <h2>
+                {{ card.back }}
+            </h2>
+
+            <div class="mt-4">
+
+                <a href="/anki_review/{{ user_id }}/1/{{ card.id }}"
+                   class="btn btn-danger">
+                    Again
+                </a>
+
+                <a href="/anki_review/{{ user_id }}/2/{{ card.id }}"
+                   class="btn btn-warning">
+                    Hard
+                </a>
+
+                <a href="/anki_review/{{ user_id }}/3/{{ card.id }}"
+                   class="btn btn-success">
+                    Good
+                </a>
+
+                <a href="/anki_review/{{ user_id }}/4/{{ card.id }}"
+                   class="btn btn-primary">
+                    Easy
+                </a>
+
+            </div>
+
+        </div>
+
+        <button
+            id="showBtn"
+            class="btn btn-dark mt-4"
+            onclick="showAnswer()">
+            Show Answer
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+function showAnswer() {
+    document.getElementById("answer").style.display = "block";
+    document.getElementById("showBtn").style.display = "none";
+}
+</script>
+
+{% endblock %}

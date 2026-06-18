@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ user.name }}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .stat-box {
+        background: white;
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+        min-width: 140px;
+        box-shadow: 0 4px 12px rgba(0,0,0,.05);
+        height: 100%; /* Чтобы все боксы в ряду были одинаковой высоты */
+    }
+
+    .stat-box h3 {
+        margin-bottom: 5px;
+        font-weight: 700;
+        color: #212529;
+    }
+    
+    .profile-card {
+        background: #f8f9fa;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 6px 18px rgba(0,0,0,.03);
+    }
+    
+    .profile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+</style>
+
+<a class="btn btn-secondary" href="/profiles">
+    ← Все профили
+</a>
+
+<div class="profile-card">
+
+    <div class="profile-header">
+        <div>
+            <h1>👤 {{ user.name }}</h1>
+            <p class="text-muted mb-0">
+                {{ user.role }}
+            </p>
+        </div>
+        <span class="badge bg-primary badge-level fs-5">
+            {{ user.cefr_level }}
+        </span>
+    </div>
+
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 mb-4">
+
+        <div class="col">
+            <div class="stat-box">
+                <h3>{{ cards|length }}</h3>
+                <small class="text-muted d-block">📚 Total Cards</small>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="stat-box">
+                <h3>{{ reviews_count }}</h3>
+                <small class="text-muted d-block">🔄 Reviews</small>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="stat-box">
+                <h3>{{ learned_cards }}</h3>
+                <small class="text-muted d-block">✅ Learned</small>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="stat-box">
+                <h3>{{ user.cefr_level }}</h3>
+                <small class="text-muted d-block">🌍 English Level</small>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="stat-box">
+                <h3>{{ user.level }}</h3>
+                <small class="text-muted d-block">🏆 Level</small>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="stat-box">
+                <h3>{{ user.xp }}</h3>
+                <small class="text-muted d-block">⭐ XP</small>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="stat-box">
+                <h3>{{ user.daily_reviews }}</h3>
+                <small class="text-muted d-block">🔥 Daily Reviews</small>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="stat-box">
+                <h3>{{ mature_cards }}</h3>
+                <small class="text-muted d-block">🧠 Mature Cards</small>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="stat-box">
+                <h3>{{ retention }}%</h3>
+                <small class="text-muted d-block">📈 Retention</small>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="stat-box">
+                <h3>{{ goal_progress }}%</h3>
+                <small class="text-muted d-block">🎯 Goal Progress</small>
+            </div>
+        </div>
+        
+    </div>
+
+<div class="mb-5">
+
+    <a
+        href="/study/{{ user.id }}"
+        class="btn btn-success btn-lg px-4"
+    >
+        ▶ Start Learning
+    </a>
+
+    <a href="/logout" class="btn btn-danger">
+    Logout
+</a>
+
+</div>
+
+
+    <h3 class="mb-3">
+        📚 Vocabulary Cards
+    </h3>
+
+    {% if cards %}
+    <div class="cards-table shadow-sm rounded overflow-hidden">
+        <table class="table table-hover table-bordered mb-0 bg-white">
+            <thead class="table-dark">
+                <tr>
+                    <th style="width: 80px;">ID</th>
+                    <th>Word</th>
+                    <th>Translation</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for card in cards %}
+                <tr>
+                    <td>{{ card.id }}</td>
+                    <td><strong class="text-primary">{{ card.front }}</strong></td>
+                    <td>{{ card.back }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-warning mt-3">
+        No cards found.
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

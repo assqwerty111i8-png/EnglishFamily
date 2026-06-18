@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add User
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h1>Add User</h1>
+
+    <form action="/create-user" method="post">
+
+        <div class="mb-3">
+            <label>Name</label>
+            <input
+                type="text"
+                name="name"
+                class="form-control"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label>Role</label>
+            <input
+                type="text"
+                name="role"
+                class="form-control"
+            >
+        </div>
+
+        <div class="mb-3">
+            <label>CEFR Level</label>
+            <select
+                name="cefr_level"
+                class="form-control"
+            >
+                <option>A1</option>
+                <option>A2</option>
+                <option>B1</option>
+                <option>B2</option>
+                <option>C1</option>
+                <option>C2</option>
+            </select>
+        </div>
+
+        <button
+            type="submit"
+            class="btn btn-success"
+        >
+            Create User
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

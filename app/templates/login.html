@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 75vh;">
+
+    <div class="card shadow-lg border-0" style="width: 420px; border-radius: 16px;">
+
+        <div class="card-body p-4">
+
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">🔐 Login</h2>
+                <p class="text-muted mb-0">
+                    Войди в свой профиль
+                </p>
+            </div>
+
+            <!-- ❌ ERROR BLOCK -->
+            {% if error %}
+            <div class="alert alert-danger text-center py-2">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <form method="post" action="/login">
+
+                <label class="form-label text-muted">Пользователь</label>
+                <select class="form-select mb-3" name="role" required>
+                    <option value="">Выбери пользователя</option>
+                    <option>Папа</option>
+                    <option>Мама</option>
+                    <option>Матвей</option>
+                    <option>Никита</option>
+                </select>
+
+                <label class="form-label text-muted">Пароль</label>
+                <input
+                    class="form-control mb-3"
+                    name="password"
+                    type="password"
+                    placeholder="Введите пароль"
+                    required
+                >
+
+                <button type="submit"
+                        class="btn btn-primary w-100 py-2 fw-bold"
+                        style="border-radius: 10px;">
+                    🚀 Войти
+                </button>
+
+            </form>
+
+            <div class="text-center mt-3">
+                <small class="text-muted">
+                    Нет аккаунта?
+                    <a href="/register">Зарегистрироваться</a>
+                </small>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

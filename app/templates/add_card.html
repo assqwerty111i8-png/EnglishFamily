@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card p-4">
+
+        <h2>➕ Add Card</h2>
+
+        <form method="post">
+
+            <div class="mb-3">
+                <label>Word</label>
+                <input
+                    type="text"
+                    name="front"
+                    class="form-control"
+                    required
+                >
+            </div>
+
+            <div class="mb-3">
+                <label>Translation</label>
+                <input
+                    type="text"
+                    name="back"
+                    class="form-control"
+                    required
+                >
+            </div>
+
+            <button
+                class="btn btn-primary"
+                type="submit"
+            >
+                Save Card
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
